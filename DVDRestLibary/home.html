@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>DVD Rest Libary</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
+</head>
+<body style="margin-top:10px">
+    <div id="divError" class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <p></p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div id="divList" class="row">
+            <div class="container">
+                <div id="divSearch" class="row">
+                    <div class="form-group">
+                        <div class="col-xs-3">
+                            <input type="button" id="btnCreate" value="Create DVD" class="btn btn-default" />
+                        </div>
+                        <div class="col-xs-1">
+                            <input type="button" id="btnSearch" value="Search" class="btn btn-default" />
+                        </div>
+                        <div class="col-xs-3">
+                            <select id="optCategory" class="form-control">
+                                <option value="">Search Category</option>
+                                <option value="title">Title</option>
+                                <option value="releaseYear">Release Year</option>
+                                <option value="director">Director</option>
+                                <option value="rating">Rating</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-3">
+                            <input type="text" id="txtSearch" class="form-control" placeholder="Search Term" />
+                        </div>
+                    </div>
+                    <br />
+                    <hr />
+                </div>
+                <div id="divListview" class="row">
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <table id="tblData" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Release Date</th>
+                                        <th>Director</th>
+                                        <th>Rating</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="contentRows" class="form-group"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="divAdd" class="row">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4">
+                <div id="divErrorA">
+                    <p></p>
+                    <ul><li></li></ul>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Add DVD</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="txtTitleA">Title</label>
+                            <input type="text" id="txtTitleA" class="form-control" required />
+                            <label for="txtReleaseYearA">Release Year</label>
+                            <input type="number" id="txtReleaseYearA" class="form-control" required />
+                            <label for="txtDirectorA">Director</label>
+                            <!--<input type="text" id="txtDirectorA" class="form-control" required />-->
+                            <select id="optDirA" class="form-control"></select>
+                            <label for="txtRatingA">Rating</label>
+                            <!--<input type="text" id="txtRatingA" class="form-control" required />-->
+                            <select id="optRatingA" class="form-control"></select>
+                            <label for="txtNoteA">Notes</label>
+                            <input type="text" multiple id="txtNoteA" class="form-control" />
+                            <hr />
+                            <div style="text-align:right">
+                                <input type="button" id="btnCancelA" value="Cancel" class="btn btn-default" />
+                                <input type="button" id="btnSaveA" value="Save" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4"></div>
+        </div>
+
+        <div id="divEdit" class="row">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4">
+                <div id="divErrorE">
+                    <p></p>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Edit DVD</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <input type="hidden" id="txtIdE" />
+                            <label for="txtTitleE">Title</label>
+                            <input type="text" id="txtTitleE" class="form-control" required />
+                            <label for="txtReleaseYearE">Release Year</label>
+                            <input type="number" id="txtReleaseYearE" class="form-control" required />
+                            <label for="txtDirectorE">Director</label>
+                            <!--<input type="text" id="txtDirectorE" class="form-control" required />-->
+                            <select id="optDirE" class="form-control"></select>
+                            <label for="txtRatingE">Rating</label>
+                            <!--<input type="text" id="txtRatingE" class="form-control" required />-->
+                            <select id="optRatingE" class="form-control"></select>
+                            <label for="txtNoteE">Notes</label>
+                            <input type="text" multiple id="txtNoteE" class="form-control" />
+                            <hr />
+                            <div style="text-align:right">
+                                <input type="button" id="btnCancelE" value="Cancel" class="btn btn-default" />
+                                <input type="button" id="btnSaveE" value="Save" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4"></div>
+        </div>
+
+        <div id="divDetail" class="row">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4">
+                <div id="divErrorDetail">
+                    <p></p>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Detail Information</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <input type="hidden" id="txtIdD" />
+                            <label>Title</label>
+                            <input type="text" id="txtTitleD" class="form-control" readonly />
+                            <label>Release Year</label>
+                            <input type="text" id="txtReleaseYearD" class="form-control" readonly />
+                            <label>Director</label>
+                            <input type="text" id="txtDirectorD" class="form-control" readonly />
+                            <label>Rating</label>
+                            <input type="text" id="txtRatingD" class="form-control" readonly />
+                            <label>Notes</label>
+                            <input type="text" multiple id="txtNoteD" class="form-control" readonly />
+                            <hr />
+                            <div style="text-align:right">
+                                <input type="button" id="btnBackD" value="Back" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4"></div>
+        </div>
+    </div>
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/jquery-1.9.1.js"></script>
+    <script src="Scripts/home.js"></script>
+</body>
+</html>
